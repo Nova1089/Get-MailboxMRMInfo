@@ -1,4 +1,6 @@
 <#
+Version 1.02
+
 This script displays mailbox info regarding messaging records management (MRM), which used to be known as email life cycle (ELC).
 (This has to do with archive, retention, and deletion policies.)
 
@@ -355,7 +357,7 @@ if ($viewMrmErrorLogs)
 $startMfa = Prompt-YesOrNo "Would you like to start the managed folder assistant for this mailbox?"
 if ($startMfa)
 {
-    Start-ManagedFolderAssistant -Identity $mailbox -ErrorVariable $mfaError
+    Start-ManagedFolderAssistant -Identity $mailbox.UserPrincipalName -ErrorVariable $mfaError
 
     if ($mfaError)
     {
