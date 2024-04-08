@@ -357,6 +357,7 @@ if ($viewMrmErrorLogs)
 $startMfa = Prompt-YesOrNo "Would you like to start the managed folder assistant for this mailbox?"
 if ($startMfa)
 {
+    Write-Host "Executing command: Start-ManagedFolderAssistant -Identity $($mailbox.UserPrincipalName)" -ForegroundColor $infoColor
     Start-ManagedFolderAssistant -Identity $mailbox.UserPrincipalName -ErrorVariable $mfaError
 
     if ($mfaError)
